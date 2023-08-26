@@ -6,9 +6,10 @@ export const ProductContext = createContext();
 
 const ProductProvider = ({children}) => {
   //products state
+  const apiKey = process.env.REACT_APP_API_KEY
   const [products, setProducts] = useState([]);
   const headers = {
-    "X-Authorization": import.meta.env.VITE_APP_API_KEY_LIVE,
+    "X-Authorization": apiKey,
     "Accept": "application/json",
     "Content-Type": "application/json",
   };
@@ -23,12 +24,12 @@ const ProductProvider = ({children}) => {
         });
 
         const data = await response.json();
-        //console.log(data);
+        setProducts(data.data)
     };
     fetchProducts();
   }, [])
 
-  return <ProductContext.Provider> {children} </ProductContext.Provider>;
+  return <ProductContext.Provider value = {{products}}> {children} </ProductContext.Provider>;
 };
 
 export default ProductProvider;
