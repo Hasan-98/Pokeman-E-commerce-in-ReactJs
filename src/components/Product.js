@@ -8,7 +8,7 @@ const Product = ({product}) => {
 
   const {addToCart}  = useContext(CartContext);
 
-  const {id , image : {url} , name , price: { formatted_with_symbol }} = product;
+  const {id , image : {url} , name , price: { raw}} = product;
   return( 
   <div>
     <div className='border border-[#e4e4e4] h-[250px] mb-4 relative overflow-hidden group transition'>
@@ -39,7 +39,7 @@ const Product = ({product}) => {
       <Link to={`/product/${id}`}>
         <h2 className='font-semibond mb-1'>{name}</h2>
       </Link>
-      <div className='font-semibond'>{formatted_with_symbol}</div>
+      <div className='font-semibond'>${raw}</div>
     </div>
   </div>
   );
