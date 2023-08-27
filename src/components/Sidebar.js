@@ -15,7 +15,7 @@ import { CartContext } from '../contexts/CartContext';
 
 const Sidebar = () => {
   const {isOpen, handleClose} = useContext(SidebarContext);
-  const {cart , clearCart , total} = useContext(CartContext);
+  const {cart , clearCart , total, itemAmount} = useContext(CartContext);
   return <div className={`${isOpen ? 'right-0' : '-right-full'
     }  w-full bg-white fixed top-0 h-full 
   shadow-2xl md:w-[35vW] xl:max-w-[30vw] transition-all 
@@ -24,7 +24,7 @@ const Sidebar = () => {
     <div className='flex items-center justify-between py-6
     border-b'>
       <div className='uppercase text-sm 
-      font-semibold'> Shopping Bag (0) </div>
+      font-semibold'> Shopping Bag ({itemAmount}) </div>
       {/* icon */}
       <div onClick={handleClose} className='cursor-pointer w-8 h-8 flex
       justify-center items-center'>
@@ -45,6 +45,11 @@ const Sidebar = () => {
           <FiTrash2/>
         </div>
       </div>
+      <Link to='/' className='bg-gray-200 flex p-4 justify-center 
+      items-center text-primary w-full font-medium'>View cart</Link>
+      <Link to='/' className='bg-primary flex p-4 justify-center 
+      items-center text-white w-full font-medium' >Checkout</Link>
+      
     </div>
     </div>;
 };
