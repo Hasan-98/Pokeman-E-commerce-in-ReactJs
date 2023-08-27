@@ -6,6 +6,11 @@ import { CartContext } from '../contexts/CartContext';
 //import product context
 import { ProductContext } from '../contexts/ProductContext';
 
+const stripHtmlTags = (html) => {
+  const temp = document.createElement('div');
+  temp.innerHTML = html;
+  return temp.textContent || temp.innerText || '';
+};
 
 const ProductDetails = () => {
   //get the product id from the url
@@ -31,7 +36,7 @@ const ProductDetails = () => {
 
   //destructure product
   const { name, price: { raw }, image, description} = product;
-
+  const strippedDescription = stripHtmlTags(description);
   return <section className='pt-32 pb-12 lg:py-32 h-screen flex 
   items-center'>
     <div className='container mx-auto'>
@@ -51,7 +56,7 @@ const ProductDetails = () => {
               </h1>
               <div className='text-xl text-red-500 font-medium
               mb-6'>$ {raw}</div>
-              <p className='mb-8'>{description}</p>
+              <p className='mb-8'>{strippedDescription}</p>
               <button onClick={()=> addToCart( product, product.id)} className='bg-primary py-4 px-8 
               text-white'>Add to cart</button>
           </div>
