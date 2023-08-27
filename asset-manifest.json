@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Pokeman-E-commerce-in-ReactJs/static/css/main.09aabede.css",
+    "main.js": "/Pokeman-E-commerce-in-ReactJs/static/js/main.73e699c4.js",
+    "static/media/logo.svg": "/Pokeman-E-commerce-in-ReactJs/static/media/logo.602f42bc5247b6c8fc88dcf001c1a477.svg",
+    "index.html": "/Pokeman-E-commerce-in-ReactJs/index.html",
+    "main.09aabede.css.map": "/Pokeman-E-commerce-in-ReactJs/static/css/main.09aabede.css.map",
+    "main.73e699c4.js.map": "/Pokeman-E-commerce-in-ReactJs/static/js/main.73e699c4.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.09aabede.css",
+    "static/js/main.73e699c4.js"
+  ]
+}
